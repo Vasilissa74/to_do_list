@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Планировщик Задач</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Планировщик Задач</h1>
+
+        <div class="board-selector">
+            <h2>Выберите Доску</h2>
+            <select id="boardSelect"></select>
+            <button onclick="openCreateBoardModal()">Создать Доску</button>
+        </div>
+
+        <div class="board" id="board">
+            <!-- Проекты (списки задач) будут здесь -->
+        </div>
+
+        <!-- Modal для создания доски -->
+        <div id="createBoardModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeCreateBoardModal()">&times;</span>
+                <h2>Создать Новую Доску</h2>
+                <input type="text" id="newBoardName" placeholder="Название доски"><br><br>
+                <button onclick="createBoard()">Создать</button>
+            </div>
+        </div>
+
+        <!-- Modal для создания проекта -->
+        <div id="createProjectModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeCreateProjectModal()">&times;</span>
+                <h2>Создать Новый Проект</h2>
+                <input type="text" id="newProjectName" placeholder="Название проекта"><br><br>
+                <textarea id="newProjectDescription" placeholder="Описание проекта"></textarea><br><br>
+                <button onclick="createProject()">Создать</button>
+            </div>
+        </div>
+
+        <!-- Modal для создания задачи -->
+        <div id="createTaskModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeCreateTaskModal()">&times;</span>
+                <h2>Создать Новую Задачу</h2>
+                <input type="text" id="newTaskName" placeholder="Название задачи"><br><br>
+                <textarea id="newTaskDescription" placeholder="Описание задачи"></textarea><br><br>
+                <select id="newTaskPriority">
+                    <option value="high">Высокий</option>
+                    <option value="medium">Средний</option>
+                    <option value="low">Низкий</option>
+                </select><br><br>
+                <button onclick="createTask()">Создать</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
